@@ -171,4 +171,55 @@ public class PantryDAO {
 
         return rowsDeleted;
     }
+    // Get number of items expiring within the next 7 days
+    public int getExpiringSoonCount() {
+
+        int count = 0;
+
+        List<PantryItem> items = getAllItems();
+
+        java.text.SimpleDateFormat dateFormat =
+                new java.text.SimpleDateFormat("yyyy-MM-dd", java.util.Locale.getDefault());
+
+        java.util.Calendar today = java.util.Calendar.getInstance();
+
+        java.util.Calendar sevenDaysFromNow =
+                java.util.Calendar.getInstance();
+
+        sevenDaysFromNow.add(java.util.Calendar.DAY_OF_YEAR, 7);
+
+        for (PantryItem item : items) {
+
+            String expiryDate = item.getExpiryDate();
+
+            if (expiryDate == null || expiryDate.trim().isEmpty()) {
+                continue;
+            }
+
+            try {
+
+                java.util.Date expiry =
+                        dateFormat.parse(expiryDate);
+
+                if (expiry != null) {
+
+                    java.util.Calendar expiryCalendar =
+                            java.util.Calendar.getInstance();
+
+                    expiryCalendar.setTime(expiry);
+
+                    if (!expiryCalendar.before(today)
+                            && !expiryCalendar.after(sevenDaysFromNow)) {
+
+                        count++;
+                    }
+                }
+
+            } catch (java.text.ParseException e) {
+                // Ignore invalid expiry dates
+            }
+        }
+
+        return count;
+    }
 }

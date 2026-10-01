@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
+import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -47,6 +48,10 @@ public class AddEditIngredientActivity extends AppCompatActivity {
         if (itemId != -1) {
             loadExistingItem();
             btnDelete.setVisibility(Button.VISIBLE);
+
+            TextView txtFormTitle = findViewById(R.id.txtFormTitle);
+            txtFormTitle.setText("Edit Ingredient");
+
         } else {
             btnDelete.setVisibility(Button.GONE);
         }
@@ -191,6 +196,7 @@ public class AddEditIngredientActivity extends AppCompatActivity {
 
         DatePickerDialog datePickerDialog = new DatePickerDialog(
                 this,
+                android.R.style.Theme_Material_Dialog_Alert,
                 (view, year, month, dayOfMonth) -> {
 
                     String date = String.format(
