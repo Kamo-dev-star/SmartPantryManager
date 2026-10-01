@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<ScrollView
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="#0B1114">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -11,67 +11,136 @@
         android:orientation="vertical"
         android:padding="20dp">
 
+        <!-- Header -->
         <TextView
             android:id="@+id/txtFormTitle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Add Ingredient"
-            android:textSize="26sp"
+            android:textSize="28sp"
             android:textStyle="bold"
+            android:textColor="#7CFF6B"
+            android:paddingBottom="6dp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Add ingredients to your pantry"
+            android:textSize="15sp"
+            android:textColor="#B8C2C7"
             android:paddingBottom="20dp" />
 
-        <EditText
-            android:id="@+id/edtName"
+        <!-- Ingredient Details Card -->
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Ingredient name"
-            android:inputType="textCapSentences"
-            android:padding="12dp" />
+            android:orientation="vertical"
+            android:background="@drawable/recipe_card_background"
+            android:padding="18dp">
 
-        <EditText
-            android:id="@+id/edtQuantity"
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="🥕 Ingredient Details"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:textColor="#FFFFFF"
+                android:paddingBottom="12dp" />
+
+            <EditText
+                android:id="@+id/edtName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Ingredient name"
+                android:textColor="#FFFFFF"
+                android:textColorHint="#8A969B"
+                android:inputType="textCapSentences"
+                android:background="@drawable/input_background" />
+
+            <EditText
+                android:id="@+id/edtQuantity"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:hint="Quantity"
+                android:textColor="#FFFFFF"
+                android:textColorHint="#8A969B"
+                android:inputType="numberDecimal"
+                android:background="@drawable/input_background" />
+
+            <EditText
+                android:id="@+id/edtUnit"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:hint="Unit (e.g. g, kg, ml, pcs)"
+                android:textColor="#FFFFFF"
+                android:textColorHint="#8A969B"
+                android:inputType="text"
+                android:background="@drawable/input_background" />
+
+        </LinearLayout>
+
+        <!-- Expiry Information Card -->
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Quantity"
-            android:inputType="numberDecimal"
-            android:padding="12dp" />
+            android:orientation="vertical"
+            android:background="@drawable/recipe_card_background"
+            android:padding="18dp"
+            android:layout_marginTop="14dp">
 
-        <EditText
-            android:id="@+id/edtUnit"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Unit (e.g. g, kg, ml, pcs)"
-            android:inputType="text"
-            android:padding="12dp" />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="📅 Expiry Information"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:textColor="#FFFFFF"
+                android:paddingBottom="12dp" />
 
-        <EditText
-            android:id="@+id/edtExpiry"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Expiry date"
-            android:focusable="false"
-            android:clickable="true"
-            android:padding="12dp" />
+            <EditText
+                android:id="@+id/edtExpiry"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Expiry date"
+                android:textColor="#FFFFFF"
+                android:textColorHint="#8A969B"
+                android:focusable="false"
+                android:clickable="true"
+                android:background="@drawable/input_background" />
 
-        <Button
-            android:id="@+id/btnSelectExpiry"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Select Expiry Date"
-            android:layout_marginTop="8dp" />
+            <Button
+                android:id="@+id/btnSelectExpiry"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Select Expiry Date"
+                android:textColor="#FFFFFF"
+                android:background="@drawable/button_primary"
+                android:backgroundTint="@null"
+                android:layout_marginTop="12dp" />
 
+        </LinearLayout>
+
+        <!-- Actions -->
         <Button
             android:id="@+id/btnSave"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Save Ingredient"
-            android:layout_marginTop="20dp" />
+            android:textColor="#FFFFFF"
+            android:background="@drawable/button_primary"
+            android:backgroundTint="@null"
+            android:layout_marginTop="18dp" />
 
         <Button
             android:id="@+id/btnDelete"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Delete Ingredient"
+            android:textColor="#FFFFFF"
+            android:background="@drawable/button_delete"
+            android:backgroundTint="@color/button_delete_color"
             android:layout_marginTop="8dp" />
 
     </LinearLayout>
