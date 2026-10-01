@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#0B1114">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="20dp">
+
+        <!-- Recipe Header -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:background="@drawable/recipe_card_background"
+            android:padding="20dp"
+            android:layout_marginBottom="18dp">
+
+            <TextView
+                android:id="@+id/txtRecipeIcon"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:gravity="center"
+                android:text="🍝"
+                android:textSize="42sp"
+                android:background="#263238" />
+
+            <TextView
+                android:id="@+id/txtRecipeName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Tomato Pasta"
+                android:textSize="28sp"
+                android:textStyle="bold"
+                android:textColor="#7CFF6B"
+                android:gravity="center"
+                android:layout_marginTop="14dp" />
+
+        </LinearLayout>
+
+        <!-- Ingredients -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="@drawable/recipe_card_background"
+            android:padding="18dp"
+            android:layout_marginBottom="14dp">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="🥕 Ingredients"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:textColor="#FFFFFF"
+                android:paddingBottom="10dp" />
+
+            <TextView
+                android:id="@+id/txtRecipeIngredients"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Ingredients"
+                android:textSize="16sp"
+                android:textColor="#B8C2C7"
+                android:lineSpacingExtra="5dp" />
+
+        </LinearLayout>
+
+        <!-- Preparation -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="@drawable/recipe_card_background"
+            android:padding="18dp">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="👨‍🍳 Preparation"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:textColor="#FFFFFF"
+                android:paddingBottom="10dp" />
+
+            <TextView
+                android:id="@+id/txtRecipeInstructions"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Preparation instructions"
+                android:textSize="16sp"
+                android:textColor="#B8C2C7"
+                android:lineSpacingExtra="5dp" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</ScrollView>
