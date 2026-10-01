@@ -27,8 +27,9 @@ public class PantryAdapter extends RecyclerView.Adapter<PantryAdapter.PantryView
     @NonNull
     @Override
     public PantryViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+
         View view = LayoutInflater.from(parent.getContext())
-                .inflate(android.R.layout.simple_list_item_2, parent, false);
+                .inflate(R.layout.item_pantry, parent, false);
 
         return new PantryViewHolder(view);
     }
@@ -38,17 +39,58 @@ public class PantryAdapter extends RecyclerView.Adapter<PantryAdapter.PantryView
 
         PantryItem item = pantryItems.get(position);
 
-        holder.nameText.setText(item.getName());
+        String name = item.getName().toLowerCase();
 
-        String quantityText = item.getQuantity() + " " + item.getUnit();
-
-        if (item.getExpiryDate() != null && !item.getExpiryDate().trim().isEmpty()) {
-            quantityText += " • Expires: " + item.getExpiryDate();
+        if (name.contains("tomato")) {
+            holder.iconText.setText("🍅");
+        } else if (name.contains("onion")) {
+            holder.iconText.setText("🧅");
+        } else if (name.contains("garlic")) {
+            holder.iconText.setText("🧄");
+        } else if (name.contains("milk")) {
+            holder.iconText.setText("🥛");
+        } else if (name.contains("bread")) {
+            holder.iconText.setText("🍞");
+        } else if (name.contains("chicken")) {
+            holder.iconText.setText("🍗");
+        } else if (name.contains("egg")) {
+            holder.iconText.setText("🥚");
+        } else if (name.contains("cheese")) {
+            holder.iconText.setText("🧀");
+        } else if (name.contains("pasta")) {
+            holder.iconText.setText("🍝");
+        } else if (name.contains("rice")) {
+            holder.iconText.setText("🍚");
+        } else if (name.contains("apple")) {
+            holder.iconText.setText("🍎");
+        } else if (name.contains("banana")) {
+            holder.iconText.setText("🍌");
+        } else {
+            holder.iconText.setText("🥫");
         }
 
-        holder.detailsText.setText(quantityText);
+        holder.nameText.setText(item.getName());
 
-        holder.itemView.setOnClickListener(v -> listener.onItemClick(item));
+        holder.quantityText.setText(
+                item.getQuantity() + " " + item.getUnit()
+        );
+
+        if (item.getExpiryDate() != null &&
+                !item.getExpiryDate().trim().isEmpty()) {
+
+            holder.expiryText.setText(
+                    "Expires: " + item.getExpiryDate()
+            );
+
+            holder.expiryText.setVisibility(View.VISIBLE);
+
+        } else {
+            holder.expiryText.setVisibility(View.GONE);
+        }
+
+        holder.itemView.setOnClickListener(
+                v -> listener.onItemClick(item)
+        );
     }
 
     @Override
@@ -58,14 +100,18 @@ public class PantryAdapter extends RecyclerView.Adapter<PantryAdapter.PantryView
 
     public static class PantryViewHolder extends RecyclerView.ViewHolder {
 
+        TextView iconText;
         TextView nameText;
-        TextView detailsText;
+        TextView quantityText;
+        TextView expiryText;
 
         public PantryViewHolder(@NonNull View itemView) {
             super(itemView);
 
-            nameText = itemView.findViewById(android.R.id.text1);
-            detailsText = itemView.findViewById(android.R.id.text2);
+            iconText = itemView.findViewById(R.id.txtItemIcon);
+            nameText = itemView.findViewById(R.id.txtItemName);
+            quantityText = itemView.findViewById(R.id.txtItemQuantity);
+            expiryText = itemView.findViewById(R.id.txtItemExpiry);
         }
     }
 }
